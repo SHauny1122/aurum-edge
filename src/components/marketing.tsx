@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { faqs, features, navigation, principles, product } from "@/lib/config";
 
 function ArrowUpRight() {
@@ -26,6 +27,27 @@ export function Navbar() {
     </header>
   );
 }
+
+const chartScreenshots = [
+  {
+    src: "/images/tradingview/Screenshot 2026-08-21 120350.png",
+    title: "Market context at a glance",
+    description: "See the dashboard and chart working together inside the TradingView workflow.",
+    size: "wide",
+  },
+  {
+    src: "/images/tradingview/Screenshot 2026-08-20 171823.png",
+    title: "Read the move",
+    description: "Use price structure and momentum as additional context for your own analysis.",
+    size: "standard",
+  },
+  {
+    src: "/images/tradingview/Screenshot 2026-08-21 120334.png",
+    title: "Keep the chart clean",
+    description: "A focused view designed to add useful information without adding noise.",
+    size: "standard",
+  },
+] as const;
 
 function ChartPreview() {
   return (
@@ -66,6 +88,31 @@ function ChartPreview() {
   );
 }
 
+function ChartScreenshots() {
+  return (
+    <div className="chart-screenshots">
+      <div className="screenshots-heading">
+        <div>
+          <span className="screenshots-kicker">Interface examples</span>
+          <h3>See the tool in its natural environment.</h3>
+        </div>
+        <p>Real chart views from the current development build. These examples show workflow and context, not trading performance.</p>
+      </div>
+      <div className="screenshot-grid">
+        {chartScreenshots.map((screenshot, index) => (
+          <figure className={`screenshot-card ${screenshot.size}`} key={screenshot.src}>
+            <div className="screenshot-image">
+              <Image src={screenshot.src} alt={screenshot.title} fill sizes={index === 0 ? "(max-width: 800px) 100vw, 70vw" : "(max-width: 800px) 100vw, 35vw"} />
+              <span className="screenshot-index">0{index + 1}</span>
+            </div>
+            <figcaption><strong>{screenshot.title}</strong><span>{screenshot.description}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   return (
     <section className="hero section-wrap" id="top">
@@ -86,7 +133,7 @@ export function ProductSections() {
       <div className="two-col"><h2>One clear view of<br /><span>what is happening.</span></h2><p>Markets are complex enough without forcing you to stack five separate indicators across your screen. Aurum Edge is being developed to bring several pieces of market context into one considered interface — so you can spend less time decoding your chart and more time making your own informed decisions.</p></div>
       <div className="principle-grid">{principles.map((item) => <article className={`principle-card ${item.tone}`} key={item.number}><span className="card-number">{item.number}</span><div className="principle-icon">{item.number === "01" ? "◒" : item.number === "02" ? "⌁" : item.number === "03" ? "◌" : "◫"}</div><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
     </section>
-    <section className="section-wrap how-section" id="how-it-works"><div className="section-kicker">02 / How it works</div><div className="two-col"><h2>A calmer workflow<br /><span>inside TradingView.</span></h2><p>You already know your charting platform. Aurum Edge is designed to fit into that workflow, giving you extra context without asking you to leave the chart or follow someone else&apos;s calls.</p></div><div className="steps">{[["01", "Add it to TradingView", "Access is provided to the TradingView indicator after purchase."], ["02", "Open your XAUUSD chart", "Use the tool directly inside your normal TradingView workflow."], ["03", "Analyse the setup", "Use regime, momentum, exhaustion and setup information as additional context for your own decisions."]].map(([number, title, description]) => <article className="step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></article>)}</div><p className="platform-note"><span>i</span> TradingView is required and is a separate service.</p></section>
+    <section className="section-wrap how-section" id="how-it-works"><div className="section-kicker">02 / How it works</div><div className="two-col"><h2>A calmer workflow<br /><span>inside TradingView.</span></h2><p>You already know your charting platform. Aurum Edge is designed to fit into that workflow, giving you extra context without asking you to leave the chart or follow someone else&apos;s calls.</p></div><div className="steps">{[["01", "Add it to TradingView", "Access is provided to the TradingView indicator after purchase."], ["02", "Open your XAUUSD chart", "Use the tool directly inside your normal TradingView workflow."], ["03", "Analyse the setup", "Use regime, momentum, exhaustion and setup information as additional context for your own decisions."]].map(([number, title, description]) => <article className="step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></article>)}</div><p className="platform-note"><span>i</span> TradingView is required and is a separate service.</p><ChartScreenshots /></section>
     <section className="gold-section" id="gold"><div className="gold-orb orb-one" /><div className="gold-orb orb-two" /><div className="section-wrap gold-inner"><div className="section-kicker">03 / Built for Gold</div><div className="gold-copy"><h2>Focused on the<br /><span>metal that moves.</span></h2><p>Instead of trying to be another indicator for every asset on TradingView, Aurum Edge is being developed and tested around the behaviour of Gold.</p><div className="tag-row"><span>XAUUSD</span><span>Scalping</span><span>Intraday</span><span>TradingView</span></div></div><div className="quote-mark">“</div><p className="gold-quote">A focused tool for traders who want more context, not more clutter.</p></div></section>
     <section className="section-wrap feature-section" id="features"><div className="section-kicker">04 / The toolkit</div><div className="feature-heading"><h2>Signal less.<br /><span>Understand more.</span></h2><p>Purposeful features for reading the chart. Nothing designed to make a promise it cannot keep.</p></div><div className="feature-grid">{features.map(([title, description], index) => <article className="feature-item" key={title}><span className="feature-icon">{["↗", "◒", "⌁", "◌", "◫", "⊞", "◉", "＋"][index]}</span><h3>{title}</h3><p>{description}</p></article>)}</div></section>
     <section className="transparency-section"><div className="section-wrap transparency-inner"><div className="transparency-badge"><span className="status-pulse" /> Current status <strong>Private testing</strong></div><div><div className="section-kicker">05 / Development transparency</div><h2>Built in the open.<br /><span>Tested before hype.</span></h2><p>Aurum Edge is currently undergoing active real-market testing. Features and logic are being refined using live chart behaviour before wider release. We are prioritising reliability and useful market context before promoting it heavily.</p></div></div></section>
@@ -94,5 +141,5 @@ export function ProductSections() {
 }
 
 export function AccessAndFooter() {
-  return <><section className="section-wrap access-section" id="access"><div className="section-kicker">06 / Early access</div><div className="access-grid"><div><h2>Get closer to<br /><span>the chart.</span></h2><p>Join the early access list for launch updates and first access to Aurum Edge.</p></div><div className="pricing-card"><div className="pricing-top"><span>Lifetime Access</span><span className="price-label">ONE-TIME PAYMENT</span></div><div className="price">Price announced <span>at launch</span></div><ul><li>TradingView indicator access</li><li>Future indicator updates</li><li>Access to new improvements to this version</li><li>Setup documentation and support</li></ul>{/* Replace the mailto with the Whop checkout URL when ready. */}<a className="button button-primary full-button" href={`mailto:${product.supportEmail}?subject=Aurum Edge early access`}>Join early access <ArrowUpRight /></a></div></div></section><section className="faq-section" id="faq"><div className="section-wrap"><div className="section-kicker">07 / Questions</div><div className="faq-grid"><h2>Worth asking.</h2><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div></div></section><footer className="site-footer"><div className="section-wrap"><div className="footer-top"><Logo /><p>Market context for a clearer chart.</p></div><div className="footer-bottom"><span>© {new Date().getFullYear()} {product.name}</span><nav><a href="#product">Product</a><a href="#faq">FAQ</a><a href="#risk">Risk Disclosure</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href={`mailto:${product.supportEmail}`}>Contact</a></nav></div><div className="disclaimer" id="risk"><strong>Risk disclosure</strong><p>Trading involves substantial risk and may not be suitable for everyone. Aurum Edge is an analytical software tool and does not provide financial advice, investment recommendations, managed trading, or guaranteed trading signals. Past market behaviour does not guarantee future results. Users are solely responsible for their own trading decisions.</p><p>Aurum Edge is not affiliated with or endorsed by TradingView.</p></div></div></footer></>;
+  return <><section className="section-wrap access-section" id="access"><div className="section-kicker">06 / Early access</div><div className="access-grid"><div><h2>Get closer to<br /><span>the chart.</span></h2><p>Join the early access list for launch updates and first access to Aurum Edge.</p></div><div className="pricing-card"><div className="pricing-top"><span>Lifetime Access</span><span className="price-label">ONE-TIME PAYMENT</span></div><div className="price">Price announced <span>at launch</span></div><ul><li>TradingView indicator access</li><li>Future indicator updates</li><li>Access to new improvements to this version</li><li>Setup documentation and support</li></ul>{/* Replace the mailto with the Whop checkout URL when ready. */}<a className="button button-primary full-button" href={`mailto:${product.supportEmail}?subject=Aurum Edge early access`}>Join early access <ArrowUpRight /></a></div></div></section><section className="faq-section" id="faq"><div className="section-wrap"><div className="section-kicker">07 / Questions</div><div className="faq-grid"><h2>Worth asking.</h2><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div></div></section><footer className="site-footer"><div className="section-wrap"><div className="footer-top"><Logo /><p>Market context for a clearer chart. <a className="social-link" href="https://x.com/poweroverthink" target="_blank" rel="noreferrer">Follow me on X ↗</a></p></div><div className="footer-bottom"><span>© {new Date().getFullYear()} {product.name}</span><nav><a href="#product">Product</a><a href="#faq">FAQ</a><a href="#risk">Risk Disclosure</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href={`mailto:${product.supportEmail}`}>Contact</a></nav></div><div className="disclaimer" id="risk"><strong>Risk disclosure</strong><p>Trading involves substantial risk and may not be suitable for everyone. Aurum Edge is an analytical software tool and does not provide financial advice, investment recommendations, managed trading, or guaranteed trading signals. Past market behaviour does not guarantee future results. Users are solely responsible for their own trading decisions.</p><p>Aurum Edge is not affiliated with or endorsed by TradingView.</p></div></div></footer></>;
 }
