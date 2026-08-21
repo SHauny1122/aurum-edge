@@ -1,6 +1,7 @@
 export const product = {
   name: "Aurum Edge",
   supportEmail: "support@example.com",
+  whopUrl: "https://whop.com/aurum-edge-six/aurum-edge-trading-indicator",
   title: "Aurum Edge — XAUUSD TradingView Analysis Tool",
   description:
     "A TradingView analysis tool built for XAUUSD traders, combining market regime, momentum, exhaustion and setup context directly on the chart.",
@@ -56,9 +57,9 @@ export const features = [
 ] as const;
 
 export const faqs = [
-  ["Is this a trading signal service?", "No. Aurum Edge is chart-analysis software designed to provide additional market context. It does not manage trades or guarantee outcomes."],
-  ["Do I need TradingView?", "Yes. The indicator runs on TradingView, which is a separate third-party platform."],
-  ["Is it only for Gold?", "The current development and testing focus is XAUUSD. We would rather optimise for one market properly before claiming broad market support."],
-  ["Is access a subscription?", "The planned offer is a one-time purchase for access to this version of the indicator and its updates."],
-  ["Does it guarantee profitable trades?", "No. No indicator can guarantee profitable trades. Trading involves risk and users remain responsible for their own trading decisions."],
+  ["How do I receive Aurum Edge?", "During checkout you will be asked for your TradingView username. After your purchase is confirmed, access will be granted directly to that TradingView account. Once activated, Aurum Edge will appear under your Invite-Only Scripts in TradingView."],
+  ["Will I receive the Pine Script source code?", "No. Aurum Edge is provided through TradingView's invite-only indicator system. Customers receive access to use the indicator, while the underlying source code remains private."],
+  ["Is this a subscription?", "No. The current Aurum Edge offer is a one-time $49 purchase for lifetime access to this version and its updates."],
+  ["Do I need TradingView?", "Yes. Aurum Edge runs inside TradingView. TradingView is a separate third-party service."],
+  ["Is this a signal service?", "No. Aurum Edge is analytical software designed to provide additional market context. It does not manage trades and does not guarantee profitable outcomes."],
 ] as const;
