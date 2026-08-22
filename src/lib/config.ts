@@ -59,7 +59,7 @@ export const features = [
 export const faqs = [
   ["How do I receive Aurum Edge?", "During checkout you will be asked for your TradingView username. After your purchase is confirmed, access will be granted directly to that TradingView account. Once activated, Aurum Edge will appear under your Invite-Only Scripts in TradingView."],
   ["Will I receive the Pine Script source code?", "No. Aurum Edge is provided through TradingView's invite-only indicator system. Customers receive access to use the indicator, while the underlying source code remains private."],
-  ["Is this a subscription?", "No. The current Aurum Edge offer is a one-time $49 purchase for lifetime access to this version and its updates."],
+  ["Is this a subscription?", "No. The current Aurum Edge offer is a one-time $100 purchase for lifetime access to this version and its updates."],
   ["Do I need TradingView?", "Yes. Aurum Edge runs inside TradingView. TradingView is a separate third-party service."],
   ["Is this a signal service?", "No. Aurum Edge is analytical software designed to provide additional market context. It does not manage trades and does not guarantee profitable outcomes."],
 ] as const;
